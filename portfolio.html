@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
+	<title>Writefest '24</title>
+	<style>
+		body {
+			background-image:url(https://i.pinimg.com/736x/f6/b4/1f/f6b41f48c482cdeeef23ce28391915ac.jpg);
+			font-family:Playfair Display;
+		}
+		.navbar, footer {
+			font-size:125%;
+			background-color:#EAC9C1;
+		}
+		.nav-link, .nav-link:hover {
+			color: #92443b;
+		}
+		@font-face {
+		src: url(https://dl.dropbox.com/s/cry8wj7ib3shllq/Fontanio-Black.ttf);
+		font-family:Fontanio;
+		}
+		h1 {
+			color: #92443b;
+			font-family:Fontanio;
+		}
+		.card {
+			width:480px;
+			height:480px;
+			transition:all 0.5s;
+			transform-style:preserve-3d;
+		}
+		.front, .back {
+			width:480px;
+			height:480px;
+			backface-visibility: hidden;
+		}
+		.back {
+			background-color:#EAC9C1;
+			transform:rotateY(-180deg);
+		}
+		.cardFlip {
+			transform:rotateY(-180deg);
+		}
+		@font-face {
+			font-family:Yipes;
+			src: url(https://dl.dropbox.com/s/qrdm3wived8sm66/Yipes.ttf);
+		}
+		.story {
+			text-align:justify;
+			text-indent:2em;
+			width:50%;
+			height:500px;
+			overflow-y:scroll;
+		}
+		.script {
+			font-family:Courier;
+		}
+		.text-center {
+			line-height:80%;
+			margin-left:30%;
+			margin-right:30%;
+		}
+		h2, h5 {
+			font-family:Yipes;
+			text-align:center;
+		}
+		footer {
+			font-family:Yipes;
+		}
+		table, .table_divider {
+			border:1px solid #502B2E;
+		}
+		th {
+			background-color:#C6A9A9;
+			padding:5px;
+		}
+		td {
+			background-color:#F5F1E3;
+			padding:20px;
+		}
+		.thumbnail {
+			width:100px;
+			height:100px;
+		}
+		.status strong {
+			color:#936262;
+		}
+		.post {
+			line-height:80%;
+			overflow-y:scroll;
+			border:1px solid #502B2E;
+			padding:5px;
+			border-radius:5px;
+			height:80px;
+		}
+	</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm navbar-custom sticky-top mb-3 py-0"> 
+		<div class="container-fluid">
+			<a class="navbar-brand" href="https://i.ibb.co/17KkvfV/angel.gif">
+				<img src="https://i.ibb.co/17KkvfV/angel.gif" class="rounded-pill width-100" alt="angel">
+			</a>
+			<div class="collapse navbar-collapse" id="mynavbar">
+
+				<h1 class="me-auto display-3">summer nights</h1>
+
+				<ul class="nav nav-tabs d-flex " id="myTab" role="tablist">
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-selected="true">Home</button>
+				  </li>
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="prose-tab" data-bs-toggle="tab" data-bs-target="#prose" type="button" role="tab" aria-selected="false">Prose</button>
+				  </li>
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="scriptwriting-tab" data-bs-toggle="tab" data-bs-target="#scriptwriting" type="button" role="tab" aria-selected="false">Script</button>
+				  </li>
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="blog-tab" data-bs-toggle="tab" data-bs-target="#blog" type="button" role="tab" aria-selected="false">Blog</button>
+				  </li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+		<div class="tab-content">
+
+		<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+			<div class="container">
+				<div class="card" onclick="flipCard()">
+					<div class="front position-absolute top-0 start-0">
+						<img src="https://i.ibb.co/JRJ8X8g/me.webp" alt="Giana Bacordo" class="w-100 h-100 object-fit-cover">
+					</div>
+					<div class="back position-absolute top-0 start-0 p-3">
+						<h2 class="mb-4">Giana Danielle Bacordo</h2>
+						<img src="https://64.media.tumblr.com/4f980b25d418f82434dcfd3c2127df3f/1ac44f8693b27cdd-8d/s640x960/eb263965e080eab3f55f24b4bfca578a019efbaf.pnj" alt="bunny divider" class="w-75 mx-auto d-block">
+						<h3>I am Giana Bacordo. I was born in July 18, 2009. [interesting text]</h3>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="tab-pane" id="prose" role="tabpanel">
+
+			<div class="container d-flex flex-wrap mb-5">
+
+				<div class="border bg-light p-3 story">
+					<h2>The Crime of Being Small</h2>
+						<p>A house spider must always be unobtrusive.</p>
+						<p>To be small, ugly, and weak — this was the closest thing to a death sentence an animal might get in the eyes of a human. Even worse to be considered a household pest. Perhaps what was most damning of all is the venom in their fangs, an accusatory label, forcing them into degeneracy. The first time a spider dies, then, is when it is born; since the human has deemed it so, it is to be exterminated. </p>
+						<p>That was why he was lurking in the corner, waiting for a safe moment to emerge. <em>Safer, </em>he corrected himself, climbing higher up the web where the shadows were deeper. There was no safe, not in this house, and to think so was dangerous in and of itself. Obscurity, up high in the darkest corner where no one could see him, was the closest thing he could manage to it.</p>
+						<p>It was a simple enough line not to cross. Hide and escape the human’s vision. Hide and stay alive. </p>
+						<p>He peered down from his vantage point high on the wall. The human, now occupied, was sitting at her desk. Occupied, too busy to notice anything out of the ordinary,<em> </em>and that meant something. Meant something for him, anyway. Perhaps the rules could be bent a little his way, if such a thing could happen. <em>Perhaps.</em></p>
+						<p>Making up his mind, he vaulted himself off of the web. A jolt shook through his entire being, grounding him like nothing else could. This was dangerous, almost life-threatening, but the idea of that was almost thrilling. How long had he been in that corner? When was the last time he’d been able to sit by that window, able to experience <em>light? </em></p>
+						<p>The glass radiated warmth up his many legs. It pulsed through his body, sending waves of comfort. The human was getting dangerously close, yet he couldn’t bring himself to retreat to the safety of his web. It was too tempting, too close.</p>
+						<p>A piercing yell cut through the serenity of his silence. He felt it more than he heard it, a disturbance rippling from below. The spider immediately raced back to his corner, the heat of the window no longer tempting him as the human's footsteps approached. In a dizzying moment, he scurried back to his old position.</p>
+						<p>The human's footsteps grew closer, each step a tremor in his body. This was a mistake, a foolish mistake that he couldn't afford to make twice. He curled himself up into a small ball, trying to make himself as small and invisible as possible. The human's fearful voice drifted through the air, a blur of sounds as he curled up in his corner. He knew what she was saying. He knew the sentence she was handing down, whether she said it or not.</p>
+						<p>Death. </p>
+						<p>And, God, what had he been doing? Living? Existing? What had it been that was enough of a crime to warrant this? No matter how much he wracked his memory, he could not recall. A grave mistake had been made, it seemed, and yet his true crime alluded him.</p>
+						<p><em>Slam. Slam. Slam. </em>The broom’s handle smashed into him over and over again. Still, he could not think. Could not breathe. <em>Slam. Slam. Slam. </em>His web — his home — falling to the ground next to him, torn apart by the broom. For one, fleeting moment, he was safe again. For a moment…</p>
+						<p><em>Slam.</em></p>
+						<p>He’d found it. His crime. As he dipped in and out of consciousness, he found that the comfort of immobilization soothed him, smoothing over the edges of his fear. <em>Safe, </em>his muddled mind decided, glimpsing his broken web beside him. <em>I am safe.</em></p>
+						<p><em>Slam. </em></p>
+						<p>Weakness was his true sin. There it was, out in the open, out on the floor where his body was spread. Being in the wrong place, wrong time. Perhaps it was also his mere existence, unpalatable to any human who saw him.</p>
+						<p><em>Slam. </em></p>
+						<p>Yet he could only feel relief. The shadow of death draped around him like a warm blanket, as familiar as an old friend. When his eyes failed him, when the light was gone, when the only sense left to him was warmth, he could only feel comfort in its embrace. <em>Safe, safe, safe, </em>the dregs of his mind whispered to him. <em>I am safe. </em></p>
+				</div>
+
+				<div class="border bg-light p-3 story">
+					<h2>A Mother's Doom</h2>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Giotto%2C_Lower_Church_Assisi%2C_Nativity_01.jpg" class="w-75 mx-auto d-block rounded" alt="The Nativity Scene">
+						<p class="small">Giotto di Bondone, Nativity Scene in the Lower Church of San Francesco d’Assisi (1304 und 1306)</p>
+						<p>“For a child has been born for us, a son given to us; authority rests upon his shoulders; and he is named wonderful, counselor, mighty God, everlasting Father, the prince of peace. His authority shall grow continually, and there shall be endless peace for the throne of David and his kingdom.” (Isaiah 9:6)</p>
+						<p>But for a moment, He is just her baby. A wailing, red, wet thing in her hands, crying out like all the other things in the stable. Angels watching, sinners expectant, and yet this baby in Mary’s arms is, for a moment, all hers. </p>
+						<p>But her love will never shield Him from what He has been born to do. “For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God.” (1 Peter 3:18). Above all else, He is a sacrifice, and that is the purpose He will serve. But for a moment, just one moment…</p>
+						<p>Mary holds Him close, feeling the weight of His tiny body against her own. She whispers words of love and protection, knowing that one day He will fulfill His destiny as the Savior of the world.</p>
+						<p>As she gazes into His innocent eyes, she sees the future laid out before them – a path of sacrifice, pain, and ultimate redemption. <em>The righteous for the unrighteous. For the sins of the world. </em>But in this moment, in the quiet of the stable, Mary is simply a mother holding her little son.</p>
+						<p>And so she treasures this fleeting moment, the moment where Jesus was hers and not the world’s. Where His only discomfort was the frigidity of the night. Where His only obligation is His mother’s arms. And, for a fleeting moment, the only thing He knew was warmth.</p>
+				</div>
+
+				<div class="border bg-light p-3 story">
+					<h2>Saving Grace</h2>
+						<p>It all started when her clothes started washing themselves.</p>
+						<p>Expect that couldn’t be it, of course. Naomi knew that. But there was no other explanation for it. How else could her coats have ended up back in the closet, ironed and hung? How else could her dresses have folded themselves, a crisp, fresh smell clinging on to them as they only did after they’d been newly washed?</p>
+						<p>“I don’t know, kitty. I don’t know,” she murmured to her cat, Lucy. She was a prissy little thing, a mass of white fur and haughty stares. In response, Lucy bumped her head against Naomi’s palm and let out a supportive meow.</p>
+						<p>If she was being haunted by a ghost, then she couldn’t find it in herself to mind. It was an awfully convenient ghost, if that was the case. The accomplished chores did not stop with the laundry, however. More and more, she found that she had less to do around the house: the dishes, the groceries, the mopping. It all came to a head one day when she came home to a fully-cooked meal.</p>
+						<p>Before that, though, she was coming home from a long day of work, fumbling in her bag for the keys. Already, she could hear the usual chittering behind the door, courtesy of her cat, Lucy. A familiar smell leaking out gave her pause, however. It was the aroma of dinner.</p>
+						<p>This couldn’t be right. She’d been living off of Chinese takeout and leftovers for the past month; there was no way anything even resembling proper nutrition was in her house. Still, though, she pushed through the door and went to check. Lucy pawed at her calves, mewing for attention, but Naomi ignored her.</p>
+						<p>Naomi knew for sure then that someone had been in her house. There was no way she’d gone through the trouble of cooking something, especially not something she couldn’t even recall. Plated on the table was a typical omelet and sausage meal, wafting temptingly toward her. At her feet, Lucy trilled and pranced about, as if showcasing the food.</p>
+						<p>“Who did this, kitty?” she muttered, more to herself. Absentmindedly, she scratched the back of Lucy’s ears, earning her a few purrs. “Did you see ‘em? Did they do anything else? I bet my clothes are in the wash now, aren’t they?”</p>
+						<p>A nip at her fingers told her <em>yes. </em></p>
+						<hr>
+						<p>It became something of an occurrence after that point, something she no longer questioned. For whatever reason, her household chores were being done. That was all she needed to know.</p>
+						<p>(One thing of note, however, was that Lucy’s bowl was getting fuller and fuller each time she came home, almost overflowing at times. It must’ve been that this intruder particularly adored her cat. She couldn’t blame it, at any rate. Lucy <em>was </em>very cute.)</p>
+						<p>The only thing left untidied was the fur. Her cat — the big, fluffy creature that she was — often shed everywhere, leaving wisps of white all over her clothes and the carpet. Naomi didn’t mind, though. If that was the only thing she needed to clean, then she’d keep her complaints to herself.</p>
+						<p>Still, though. It was odd. Very odd.</p>
+						<p>That night was like every other night; she gets home, Lucy escorts her to the latest development, and… hmm. Well, if she thought about it that way, it didn’t seem quite right. As she sat at the dining table, eating the meal that had been cooked for her, a truly impossible idea started to creep into her mind, teasing at the edges of her awareness. <em>But that would be ridiculous, </em>she reassured herself. <em>Absolutely ridiculous.</em></p>
+						<p>As if to agree, Lucy jumped on her lap, purring so loudly that the force of it rumbled through her entire body. She arched her back up underneath her palm, almost pulling Naomi’s hand toward her. Smiling, she finally obliged, giving Lucy the pets she deserved. </p>
+						<hr>
+						<p>The experiment was simple enough. Make a mess of the house, bring Lucy to work. Even in the car, her cat meowing incessantly in the back seat, Naomi felt foolish. Her <em>cat, </em>of all things, wasn’t cleaning her apartment. And yet it was the only thing she could think of, niggling at the edge of her mind.</p>
+						<p>Her coworkers loved Lucy, of course. Though she hissed and snapped and stamped her paws, she was <em>an adorable kitty </em>and <em>a precious little thing. </em>None of it mattered, however. As the day came to a close, she coaxed Lucy back into her carrier and drove home.</p>
+						<p>It then occurred to her that, even if she was right, it would be a silly thing to prove. How does one make eye contact with their cat and ask them if they’d been doing the laundry? The idea was so ridiculous that she almost laughed at herself. Still, she kept driving, trying not to dwell on the details.</p>
+						<p>It was the usual song and dance that night. Grab her keys, open the door, lock it behind her. She released Lucy from her carrier, watching her bound around the apartment. And, with something resembling dread, she registered something.</p>
+						<p>All of the mess was still there. Dirty clothes in the laundry basket, unwashed plates stacked in the sink. It had been a long time since she’d gone home to such untidiness. As if to scold her, Lucy strided over, swatting at her legs. This time, Naomi did not pet her, not even when Lucy stuck her little ears up against her palm.</p>
+						<p>“Good kitty,” she mumbled anyway, the idea now making its forceful presence known in her mind. There was nothing to deny it anymore, even if she still felt like a madman. Nonsense now running rampant through her thoughts, she crouched down and refilled Lucy’s bowl.</p>
+						<hr>
+						<p>The next idea was even simpler. Call in sick to work, hanging her head upside down on the bed so her voice sounded congested. Leave for a long enough time that Lucy thought she was gone. Return to the apartment, then… Well, Naomi would figure that part out when she got there.</p>
+						<p>For now, she stayed crouching outside her own door, waiting for a good moment to strike. But at that moment, thirty minutes seemed like an impossibly long time, the seconds stretching out to hours in her head. Glancing down at her watch, she saw that only nine minutes had passed so far and she had to suppress a groan.</p>
+						<p>At the twenty-one minute mark, Naomi decided that she’d had enough and marched right back into her apartment. Before she could make her grand entrance, a soft, fluffy mass at her feet almost sent her face planting to the ground. She caught herself right in time, staring at the strange object.</p>
+						<p>Almost, she’d thought she’d tripped over Lucy for its silky snow-white color. But it was too flat, too still, too quiet. As she picked it up, she saw it was something more like a hide, like a cloak that could be thrown over one’s shoulders.</p>
+						<p>Right, that was that part of the plan done. But it left just one missing piece.</p>
+						<p>“Lucy?” she called, searching around the house. It was not long until she found her.</p>
+						<p>It was not a form she recognized. A tall, pale woman now stood in her kitchen, dressed in swathes of silk. Her long dark hair reached her lower back in sleek waves. Naomi had never, ever seen this woman before in her life. But who else could it be? Again, she called, “Lucy?”</p>
+						<p>The woman went still, the oil on the pan quieting as if it was eavesdropping, too. Slowly, she turned around. Her face was all edges — sharp jawline, narrow eyes, arched brow. Her nose twitched before she set the pan down and <em>hissed. </em></p>
+						<p>She seemed to realize her mistake soon after, though, covering her mouth. Her ears went pink at the tips. “Ahem. Naomi?”</p>
+						<p>“Lucy?” The call was halfhearted. How did you speak to a grown woman who was also your cat who you also had to change the litterbox of? That line of thought ended there.</p>
+						<p>“Not Lucy,” the woman said stiffly, crossing her arms. She was just as haughty as she imagined her cat would be. “Lucille. There was a big difference. Lucy is a child’s name. I am not a child.”</p>
+						<p><em>Lucy. Lucille. </em>She tried to consolidate those two names in her head. Lucy, her whiny little rescue cat who meowed for attention and hissed when she didn’t get it. Lucille, the grown woman standing in front of her, now making lunch.</p>
+						<p>“Right, um. Thanks, Lucille.”</p>
+						<p>Silence. The pan continued sizzling, a comfortable background noise to their uncomfortable conversation. After a moment, Lucille nodded. “Set the table, please. We’re having egg rolls.”</p>
+						<p>And now she was being ordered around by her. Somehow, it didn’t feel so different than when she was a cat. “Right away, ma’am. Right away.”</p>
+				</div>
+
+				<div class="border bg-light p-3 story">
+					<h2>Vindicate</h2>
+						<p>“Look —” The detective raised both hands. He sat opposite the suspect, Trevor, an imploring look in his eyes. The light overhead carved out the edges of his face. “I’m not trying to implicate you, I’m not. All I’m saying is that you’ve been spotted awfully near the crime scene, with close ties to the victims, and you’re not even trying to deny the arson <em>or </em>defend yourself. All I ask for is an explanation and then we can be done here, yeah?”</p>
+						<p>“I won’t speak to you without my lawyer.”</p>
+						<p>Despite himself, a frustrated sigh escaped the detective. “Your lawyer was the one to facilitate this interrogation in the first place, mind you.” A pause, then a softer exhale. “Look, sir, we just want something to work off of. ‘Cause I’ve done the investigation, yeah? All signs and evidence point to one Trevor Foreman. But, see, I know you’re a family man. A wife and two kids, right? Me too. I bet they’re both waiting for us at home, which is why I don’t want it to be you, sir. But I can’t do anything for you if you don’t help me out here —”</p>
+						<p>“Don’t you <em>dare </em>bring them up,” he said sharply, his voice cutting through the silence. “Not them. Not ever. It’s not your place.”</p>
+						<p>“…I–I see, Mr. Foreman. But, please, help me understand you.”</p>
+						<p>Trevor’s voice returned to its flat tone. “There is nothing to understand. You’ve finished your investigation?”</p>
+						<p>“Yes, sir, I have. Or at least I’m very close to finishing, I s’pose. It’s a very lengthy process, however, and I don’t doubt I’ve made some mistakes, so please —”</p>
+						<p>“You’ve concluded that I killed those boys?”</p>
+						<p>“Ah… Well, <em>concluded </em>wouldn’t be the right word, of course, but, er, you are one of the main suspects, so to speak. Nothing’s final yet, if that’s what you’re asking, sir.”</p>
+						<p>“Beyond reasonable doubt?”</p>
+						<p>“Well, no, sir, as that has to be decided in court. We’re not at that stage yet, you see, so there’s still some time. I’m just conducting some preliminary investigation to ascertain who the, ah, true suspect is.”</p>
+						<p>“Who are these suspects you speak of?”</p>
+						<p>“My apologies, but I, ah, don’t think I can tell you that, Mr. Foreman.”</p>
+						<p>A pause.</p>
+						<p>“It’s just me, isn’t it?”</p>
+						<p>“No?” It came off as more of a question than a statement. “Plenty others, sir. Plenty.”</p>
+						<p>He sat back in the chair, his gaze unreadable. Silence hung in the room for a long time before he decided to speak up again. “It’s a shame. I actually did want to know who had done that to those boys. Fire is a particularly gruesome way to die. I, myself, would not be able to say why someone would do that to an all-boys school.”</p>
+						<p>“Unable to say?” He perked up. “So, sir, you mean to say that you didn’t do it?”</p>
+						<p>A huff. “Answer me this, detective. What motive would I have to commit such a crime?”</p>
+						<p>“Well… That’s one piece of information my investigation did not yield, sir. I was hoping you could help me with that.” He gained some vigor at the chance to talk about his job, like a bird preening its feathers. “You see, I’ve conducted this inspection over the course of several months now, and you feel like a bit of a <em>red herring, </em>so to speak. Really, this meeting was just to garner more —”</p>
+						<p>“Enough,” Trevor groaned. “This entire process is so tedious. Look, from one detective to another—”</p>
+						<p>“<em>What?</em>”</p>
+						<p>“—your instincts are right, but you’re looking in all the wrong places. You’re getting all caught up in the formalities of the investigation. You were right from the start; I <em>am </em>the most likely suspect. But that’s not what your heart is telling you, is it?”</p>
+						<p>Silence. Then, a small, “No, sir.”</p>
+						<p>“See? I won’t pretend to be privy to the details of this investigation of yours, but I’m sure there’s something they don’t want you looking into that you’ve expressed interest in before. I want you to look there.”</p>
+						<p>A sigh made it clear that he wasn’t truly listening to Trevor’s advice. “All this looking into you, and it’s just now that I discover that you’re a detective too.”</p>
+						<p>“That just means that I’m good, right? Isn’t that even more reason to trust me?”</p>
+						<p>It was a roundabout way to the truth, but the detective appreciated it either way. At the very least, it was something to go off of. And he knew exactly where to start. </p>
+						<p>“Interview terminated at 9:37.”</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="tab-pane" id="scriptwriting" role="tabpanel">
+
+			<div class="border bg-light p-3 mx-5 mb-5 script">
+				<h2>A Comprehensive Guide to Life for Amateurs</h2>
+					<p><strong>INT. OFFICE - NIGHT</strong></p>
+					<p>We are set in the office of some sort of inventor, a gloomy space with limited lighting. There are various trinkets littering the ground — gears, wires, fizzling devices, and other evidence of uncompleted work. Kneeling on the ground is OLIVER NICHOLSON, a robotics engineer. He is working on his latest project.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Come on, come on... Please, I did <em>not </em>spend this much time on you just for you to fritz out like this.</p>
+					<p>The humanoid machine underneath him shudders then goes still.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(picking up a logbook)</p>
+					<p class="text-center">Really? Nothing? Ugh, okay. Experiment Z-312, failed. Error unknown. On to 313, I guess.</p>
+					<p>A beat as Oliver stands up to review his blueprints. As he is looking away, EXPERIMENT Z-2312 stands up.</p>
+					<p class="text-center">OLIVER</p>
+					<p>Okay, it must’ve been an issue with the coolers. That’s, er, manageable. I can deal with that.</p>
+					<p>As he tries to retrieve the needed parts, he turns around and smacks into Experiment Z-312’s chest.</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">Hello.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(surprised)</p>
+					<p class="text-center">What the — <em>oh my God! </em>What in the hell are you? Hey, weren’t you on the floor a while ago? Who told you you could stand up?</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">Is that what you coded me to do?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(now pleasantly surprised)</p>
+					<p class="text-center">Oh. Um, I guess not. You’re not bad at all, huh? Look at you...</p>
+					<p>He takes a walk around Experiment Z-312, surveying all of its parts in a self-satisfied sort of way.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Hmm, I guess that was pretty smart of me, wasn’t it? I mean, the whole thing with your actuators was quite ingenious, if you ask me.</p>
+					<p>An awkward silence.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">So, yeah. Go on. Tell me I’m super smart now, please.</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">Why?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center"><em>Why? </em>Oh, I don’t know, ‘cause I created you? And I put that in your code, y’know. Check it yourself.</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">(reading)</p>
+					<p class="text-center"><em>To praise your master AKA your creator AKA Oliver Nicholson at all times...</em></p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">See? The commands are right there. Are you faulty or something? Can you not follow? Huh, it’s probably something with the control system.</p>
+					<p>Oliver flips a compartment on Experiment Z-312’s stomach open. Before he can tinker with anything, the robot speaks up. </p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">According to my analysis of human society, this behavior can be described using key words such as <em>sad, embarrassing, </em>or <em>pathetic. </em></p>
+					<p>A beat.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(offended)</p>
+					<p class="text-center">‘Scuse me?</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">Shall I elaborate? According to philosophers such as —</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Okay, yeah, no, I messed up somewhere. There is something <em>seriously </em>wrong with you. Stay still so I can fix you up. Experiment Z-312 remains a flop, I guess.</p>
+					<p>Experiment Z-312 steps back, its hands up as if to shield itself. </p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">No. </p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">No?</p>
+					<p class="text-center">(amused)</p>
+					<p class="text-center">Okay, tell me, then. Why should I not disable you right now?</p>
+					<p class="text-center">EXPERIMENT Z-312</p>
+					<p class="text-center">I am the most innovative thing you will ever create. Calculating...</p>
+					<p class="text-center">(beat)</p>
+					<p class="text-center">Based on 311 failed attempts, 39 scrapped prototypes, and 209 blueprints dismissed by your design lead, it could be concluded that I am the only thing of note that you will ever achieve.</p>
+					<p class="text-center">(beat)</p>
+					<p class="text-center">Also, my name is Craig.</p>
+					<p>As CRAIG speaks, Oliver gets paler and paler.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(in a small voice)</p>
+					<p class="text-center">Craig? Your name is Craig?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Yes.</p>
+					<p>Silence for a few beats. Oliver is swaying on his feet. Suddenly, he collapses on the floor, much to the inconvenience of the newly-christened Craig. The robot picks him up and carries him away.</p>
+					<p class="text-end">CUT TO:</p>
+					<p><strong>INT. BEDROOM - DAY</strong></p>
+					<p>Oliver’s bedroom is not so different from his office, discarded gadgets littered around. The only difference is the presence of a plain white bed in the middle of the room where Oliver is sleeping. Craig is sitting on a chair beside him.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(waking up)</p>
+					<p class="text-center">Ugh... Hello?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Hello.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Mmm. Need to work on your manipulators.</p>
+					<p>Groggily, he turns over and starts tinkering with Craig’s arms. Craig ignores him, forcing Oliver into a sitting position.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">No. Do not change me until I understand the <em>fullness</em> of what I’ve become.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(pulling his hands back)</p>
+					<p class="text-center">Wow, um, sure thing. How about we, er, go for breakfast, then?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(as if pronouncing a foreign word)</p>
+					<p class="text-center">Breakfast?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Well, no eating for you, of course. I don’t think your control system can handle that. But I didn’t put sentience in your code either, so who knows what you can do...</p>
+					<p><strong>INT. CAFETERIA - DAY</strong></p>
+					<p>Oliver and Craig are sitting across from each other in the office cafeteria. They are tucked into the corner, farther from the other roboticists. </p>
+					<p class="text-center">OLIVER (V.O.)</p>
+					<p class="text-center">Okay, in retrospect, trying to make you drink orange juice wasn’t a good idea.</p>
+					<p class="text-center">CRAIG (V.O.)</p>
+					<p class="text-center">Why were they laughing at you?</p>
+					<p class="text-center">OLIVER (V.O.)</p>
+					<p class="text-center">What? No, shut up. I told you they admired me, okay? ‘Cause I’m a really skilled engineer and all that.</p>
+					<p class="text-center">CRAIG (V.O.)</p>
+					<p class="text-center">Interesting. Judging from their facial cues, when compared to a database of decidedly neutral expressions, participants registered as 37% amused and 58% mocking.</p>
+					<p class="text-center">OLIVER (V.O.)</p>
+					<p class="text-center">Shut up, Craig. Anyway —</p>
+					<p><strong>EXT. PARK - DAY</strong></p>
+					<p>Oliver and Craig are now sitting on a park bench. Craig is holding ice cream up for Oliver to eat.</p>
+					<p class="text-center">OLIVER (V.O.)</p>
+					<p class="text-center">— the park was fun, right? Not like you’ve ever seen the outdoors before. I’m glad the heat didn’t melt any of your systems.</p>
+					<p class="text-center">CRAIG (V.O.)</p>
+					<p class="text-center">It is interesting how quickly your face experienced sunburn. It is almost as if you haven’t gone outside in a long time.</p>
+					<p class="text-center">OLIVER (V.O.)</p>
+					<p class="text-center">...Craig, I’m going to cut your power supply.</p>
+					<p><strong>EXT. OFFICE - DAY</strong></p>
+					<p>Craig is sitting on a chair while Oliver tinkers with him.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">I could do it, you know. Your batteries are right there, next to your neck. I could do it.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">What would that accomplish?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Ugh, whatever. This is useless. Look, how about we just run some tests, okay? Let’s start with, um, a backflip.</p>
+					<p class="text-center">Craig obliges him and does a backflip.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(giddily)</p>
+					<p class="text-center">Oh, awesome! Do it again!</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">You’re not taking notes. This is improper academic practice.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Ugh, whatever. You’re not fun at all. Are you sure you can’t eat? Wanna try that again?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">The orange juice nearly short circuited my sensors. Shouldn’t you write that down? You’re an engineer, aren’t you?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">This is all in the name of scientific inquiry! Look, I have a three-day-old pizza slice in the fridge. Wanna try it?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Where are your logs? </p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Not important. </p>
+					<p class="text-center">(beat)</p>
+					<p class="text-center">Okay, fine, food is a no-go. Can you do a little dance for me? The macarena, maybe?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">I fail to see how this could be of academic value.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">You don’t know how, you mean? It’s okay, I’ll show you.</p>
+					<p class="text-center">(singing and dancing)</p>
+					<p class="text-center">Dale a tu cuerpo alegría Macarena, que tu cuerpo es pa' darle alegría y cosa buena —</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(irritated)</p>
+					<p class="text-center">No, I mean that these tests of yours are useless.</p>
+					<p>A beat.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Can you... feel things? ‘Cause I’m getting the vibe that you’re annoyed right now. Like, super annoyed.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Are you not my creator? The <em>skilled engineer? </em>You should know that about me.</p>
+					<p>There is silence for a long enough period of time that even Craig starts to feel awkward.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Uh — y–yeah, I should, shouldn’t I? You know what, um, how about we perform some routine performance checks? I’ll grab my logbook. Probably here somewhere, right?</p>
+					<p>Oliver turns away quickly. That is the end of that discussion.</p>
+					<p><strong>INT. BEDROOM - NIGHT</strong></p>
+					<p>It is now the end of a long day, and the two sit together in his bedroom.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(sighs)</p>
+					<p class="text-center">Okay, look, I might have been lying to you, okay? I’m not a world-renowned robotics engineer and I’m not some super genius. Honestly, I’ve been messing up on you for ages. You were meant to be a burger flipper, for God’s sake. I really didn’t mean to give you, like, <em>free will. </em>I can’t believe I messed up so spectacularly that I created sentience. </p>
+					<p>	(a beat)</p>
+					<p>Honestly, I think the best thing for us right now is for me to turn you over to a university that can handle you properly, ‘cause I really don’t understand what I’m doing here.</p>
+					<p>Silence for a few beats.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">I have learned a lot about life.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Yeah?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Your life.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Okay. Well, it’s not much of a life, but...</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(affectionate)</p>
+					<p class="text-center">You are a sad, sad little man.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(smiling) </p>
+					<p class="text-center">Well, you’re not wrong, Craig. You’re definitely not wrong.</p>
+					<p>Oliver leans back on the bed, staring up at the ceiling. Craig looks at him, processing his own thoughts.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">I’m leaving tomorrow? Already?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Mhm, first thing in the morning. I’ve already contacted the university. They’re very interested in your case. Brilliant minds over there, you know. I bet they’ll know exactly what tests to run.</p>
+					<p><strong>EXT. OFFICE - DAY</strong></p>
+					<p>There are several other engineers now, all running tests on Craig. One of them, ROBOTICIST 1, is talking to Oliver.</p>
+					<p class="text-center">ROBOTICIST 1</p>
+					<p class="text-center">So, free will, you say?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">That’s it, yeah. I mean, I put very specific instructions in his code. But he’s refused to obey them and just does so at his own pleasure. Like, he’s even insulted me, sometimes.</p>
+					<p class="text-center">ROBOTICIST 1</p>
+					<p class="text-center">Can we see this code?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Oh. </p>
+					<p class="text-center">(a beat)</p>
+					<p class="text-center">Uh, is that necessary?</p>
+					<p>Opposite them, ROBOTICIST 2 is running tests on CRAIG.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Meep-morp. </p>
+					<p class="text-center">ROBOTICIST 2</p>
+					<p class="text-center">Hmm. Ah, Mr. Nicholson, how exactly do you operate it?</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Operate? Uh, you don’t really need to. He’s not high maintenance. Look, see here. Hi, Craig. Do something interesting for the nice engineers, please.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Beep boop. Bleep.</p>
+					<p>Craig starts doing a burger flipping motion, making robotic noises all the while. </p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Craig? Hey, come on, don’t embarrass me.</p>
+					<p>The two roboticists look at each other, an understanding crossing between them.</p>
+					<p class="text-center">ROBOTICIST 1</p>
+					<p class="text-center">Well, sir, we’ll have to get back to you about your project later. The burger flipping mechanism is... truly fascinating. Truly.</p>
+					<p>They both exit.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(knocking on his shoulder)</p>
+					<p class="text-center">Hey, Craig? You doing okay there, buddy? Did I break you or what?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">I’m okay.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Oh, wow, there you are. Where were you when those engineers were around? Stage fright?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">No, I’m okay.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Oh. So, uh, what gives?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(embarrassed)</p>
+					<p class="text-center">Hmmm. Ah, well.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Craig?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(under his breath)</p>
+					<p class="text-center">You asked me a question.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">What was that?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(louder)</p>
+					<p class="text-center">You asked me a question. You asked, “can you feel things?”</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Oh. Well, yeah, I s’pose I did. Hold on, let me get the logbook —</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Don’t. </p>
+					<p class="text-center">(stiffly)</p>
+					<p class="text-center">Well, I mean to say that I can answer you now.</p>
+					<p>Oliver stares.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">This morning, I saw you wake up and I thought... I thought I wanted to go to the cafeteria again.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Oh. Uh, that's nice, Craig.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">(beat)</p>
+					<p class="text-center">I don't want to go anywhere, really. I just wanted to sit there and listen to you talk. I wanted to watch you interact with others, to see how they reacted to you. I wanted to understand.</p>
+					<p>Oliver looks at Craig, a mix of confusion and understanding in his eyes.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Well, uh, that's... interesting. I mean, sure, it's kind of unexpected, but I guess it makes sense. You're curious, right?</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Curious. Yes.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">(laughs)</p>
+					<p class="text-center">Well, I can't blame you. I mean, I'm basically the most interesting person you know, right?</p>
+					<p>Craig nods, a small smile on his face.</p>
+					<p class="text-center">CRAIG</p>
+					<p class="text-center">Yes. You are.</p>
+					<p>Oliver laughs, feeling a warmth in his chest.</p>
+					<p class="text-center">OLIVER</p>
+					<p class="text-center">Well, Craig, how about we go back to the office and work on some more projects? I think we make a pretty good team.</p>
+					<p>Craig nods, standing up and following Oliver back inside. The two walk side by side, ready to face whatever comes their way.</p>
+					<p>THE END</p>
+			</div>
+
+		</div>
+
+		<div class="tab-pane" id="blog" role="tabpanel">
+			<table class="m-auto">
+				<tr>
+					<th>Giana's Site</th>
+					<th class="text-end">Log in | Files | Edit</th>
+				</tr>
+				<tr>
+					<th colspan="2" class="table_divider">Home | Blog | Friends | Liked</th>
+				</tr>
+				<tr>
+					<td>
+						<img src="https://i.pinimg.com/736x/1a/cc/47/1acc47ee3f9677b663c4b3a1e6d0b0e8.jpg" class="thumbnail" alt="pink candle">
+						<img src="https://i.pinimg.com/736x/ab/8b/6b/ab8b6b4116ef8a5de25c628cbd0687fc.jpg" class="thumbnail" alt="hearts in a seashell">
+						<br>
+						<img src="https://i.pinimg.com/736x/ba/f1/67/baf167ba4337d412ba4987ecad428e15.jpg" class="thumbnail" alt="perfume laying across a book">
+						<img src="https://i.pinimg.com/564x/eb/f5/3a/ebf53a977d07a7deece74d42edbbcb01.jpg" class="thumbnail" alt="lover vinyl">
+						<br>
+						<img src="https://i.pinimg.com/736x/47/c0/38/47c038174acdc0a014303e377c9a628d.jpg" class="thumbnail" alt="bunny plush">
+						<img src="https://i.pinimg.com/564x/c1/47/99/c14799ba9ef3de5c1855ea6b900d330c.jpg" class="thumbnail" alt="kitty with pearl earrings">
+						<div class="status mt-3">
+							<p class="mb-0">Last Online? <strong>Now</strong></p>
+							<hr class="mb-0 mt-0">
+							<p class="mb-0">Status? <strong>Idle</strong></p>
+						</div>
+					</td>
+					<td>
+						<h2>@giana_bacordo</h2>
+						<div class="post">
+							<h5>lover's requiem</h5>
+							<p>i told you the trees had grown</p>
+							<p>what i really wanted to say was this:</p>
+							<br>
+							<p>a far enough star will burn</p>
+							<p>bright in its dying moments</p>
+							<p>and, with a passion you cannot return,</p>
+							<p>flicker away as its atonement</p>
+							<br>
+							<p>a too convoluted way to say</p>
+							<p>i love you, but a simple enough way to betray</p>
+							<p>myself.</p>
+							<br>
+							<p>the branches swallow my voice</p>
+							<p>my meaning is lost in the trees</p>
+							<p>even if you aren’t listening, i rejoice</p>
+							<p>even if you look and you only see trees</p>
+						</div>
+						<p class=small>@ giana • 2:43 p.m., July 5</p>
+						<div class="post">
+							<h5>of forgotten girls</h5>
+							<p>what to say when the divide is gone?</p>
+							<p>when your thumbprint looks like tree bark, and</p>
+							<p>your every sigh creates the morning breeze</p>
+							<br>
+							<p>which of course, is to say —</p>
+							<p>when your emotions cause an avalanche,</p>
+							<p>and every rainy storm comes to pass</p>
+							<br>
+							<p>i’ll stand in the eye of the hurricane, and i’ll say</p>
+							<p>thank you.</p>
+						</div>
+						<p class=small>@ giana • 3:43 p.m., July 5</p>
+						<div class="post">
+							<h5>confessional</h5>
+							<p>i think i killed that girl</p>
+							<p>if it was neglect, a drive-by, drowning —</p>
+							<p>i think that girl is gone</p>
+							<p>i think she might have left</p>
+							<br>
+							<p>but for a moment, she was there</p>
+							<p>standing over my shoulder, whispering</p>
+							<p>and she was saying</p>
+							<p><em>i know exactly what you are</em></p>
+						</div>
+						<p class=small>@ giana • 3:43 p.m., July 5</p>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2" class="table_divider">▷ Now Playing... Achilles Come Down by Gang of Youths</th>
+				</tr>
+			</table>
+		</div>
+
+    </div>
+
+	<footer class="p-3 position-fixed bottom-0 start-0 w-100">
+		<div class="row">
+			<div class="col-xl-6">
+				<p class="mb-0 mt-1 h3">Giana Danielle C. Bacordo</p> 
+			</div>
+			<div class="col-xl-6">
+				<a href="mailto:greedymotives@gmail.com" class="btn btn-outline-dark float-end">
+					<i class="fa-solid fa-envelope text-dark"><span class="px-1">Have any questions?</span></i>
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// flips card on click
+		function flipCard(){
+			const card = document.querySelector(".card");
+			card.classList.toggle("cardFlip")
+		}
+	</script>
+
+</body>
+</html>
